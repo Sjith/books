@@ -15,7 +15,7 @@ sub xxx {
         my @files = glob("$path/*");
         if (@files) {
             print " " x $offset, "$basename, with contents:\n";
-            foreach my $file (glob("$path/*")) {
+            foreach my $file (@files) {
                 xxx($file, $offset + 2);
             }
         } else {
