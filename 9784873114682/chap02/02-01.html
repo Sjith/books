@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="#anchor1">Anchor1</a></li>
+        <li><a href="#anchor2">Anchor2</a></li>
+        <li><span><a href="#anchor3">Anchor3</a></span></li>
+    </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        alert($('#nav li > a').text());
+    });
+    </script>
+</body>
+</html>

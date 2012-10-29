@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>click me</div>
+    <div class="test">test</div>
+    <div>click me</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $('div').click(function() {
+            alert('You clicked on div with an index of ' + $('div').index(this));
+        })
+
+        var test = $('div.test');
+        $('div').each(function() {
+            if ($(this).index(test) >= 0) {
+                alert('foo');
+            } else {
+                alert('bar');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

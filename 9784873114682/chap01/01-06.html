@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p>Ut ad videntur facilisis <em>elit</em> cum. Nibh insitam erat facit <em>sqepius</em> manga. Nam ex liber iriure et imperdiet. Et mirum eros iis tehabent.</p>
+    <p>Claram claritatem eu amet dignissim magna. Dignissim quam elit facer erosillum. Et qui ex esse <em>tincidunt</em> anteposuerit. Nulla nam odio ii vulputate feugait.</p>
+    <p>In quis <em>laoreet</em> te legunt euismod. Claritatem <em>consuetudium</em> wisi sit velit facilisi.</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        //alert('The three paragraphs in all contain ' + $('p').find('em').length + ' italic words');
+        //alert('The three paragraphs in all contain ' + $('em', $('p')).length + ' italic words');
+        alert('The three paragraphs in all contain ' + $('p em').length + ' italic words');
+    });
+    </script>
+</body>
+</html>

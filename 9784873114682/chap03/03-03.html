@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!-- <div>
+        <p>
+            jQuery, ...
+        </p>
+    </div> -->
+    <h2>New York Yankees - Batting Line-up</h2>
+    <ol>
+        <li>Jeter</li>
+        <li>Damon</li>
+        <li>Teixeira</li>
+        <li>Posada</li>
+        <li>Swisher</li>
+        <li>Cano</li>
+        <li>Cabrera</li>
+        <li>Molina</li>
+        <li>Ransom</li>
+    </ol>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    /*
+    $(function() {
+        var inner = $('div')[0].innerHTML;
+        alert(inner);
+    });
+    */
+    $(function() {
+        var lis = $('ol li').get().reverse();
+        $('ol').empty();
+        $.each(lis, function(i) {
+            $('ol').append('<li>' + lis[i].innerHTML + '</li>');
+        });
+    });
+    </script>
+</body>
+</html>

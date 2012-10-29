@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <form action="">
+            <input name="" type="checkbox" />
+            <input name="" type="radio" />
+            <input name="" type="text" />
+            <input name="" type="button" />
+        </form>
+
+        <form action="">
+            <input name="" type="checkbox" />
+            <input name="" type="radio" />
+            <input name="" type="text" />
+            <input name="" type="button" />
+        </form>
+
+        <input name="" type="checkbox" />
+        <input name="" type="radio" />
+        <input name="" type="text" />
+        <input name="" type="button" />
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            // selected 8 inputs
+            alert('selected ' + $('input', $('form')).length + ' inputs');
+
+            // selected 4 inputs
+            alert('selected ' + $('input', document.forms[0]).length + ' inputs');
+
+            // selected 12 inputs
+            alert('selected ' + $('input', $('body')).length + ' inputs');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="#0">link</a></li>
+            <li><a href="#1">link</a></li>
+            <li><a href="#2">link</a></li>
+            <li><a href="#3">link</a></li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $('li:eq(1)').next();               // li#2
+        $('li:eq(1)').prev();               // li#0
+        $('li:eq(1)').parent();             // <ul>
+        $('li:eq(1)').parent().children();  // <li>*4
+        $('li:eq(1)').nextAll();            // li#3 ~
+        $('li:eq(1)').prevAll();            // li#1 ~
+    });
+    </script>
+</body>
+</html>

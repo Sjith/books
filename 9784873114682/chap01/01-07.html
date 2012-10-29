@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p>text</p>
+    <p class="middle">Middle <span>text</span></p>
+    <p>text</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        alert($('p').filter('.middle').length);                             // 1
+        alert($('p').filter('.middle').end().length);                       // 3
+        alert($('p').filter('.middle').find('span').end().end().length);    // 3
+    });
+    </script>
+</body>
+</html>
