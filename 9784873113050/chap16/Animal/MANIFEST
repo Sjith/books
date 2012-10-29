@@ -1,0 +1,8 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Animal.t
+t/Horse.t
+lib/Animal.pm
+lib/Animal/Horse.pm
