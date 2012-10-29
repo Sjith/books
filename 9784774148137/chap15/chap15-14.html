@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    document.body.ondragover = function(event) {
+        event.preventDefault();
+    };
+
+    document.body.ondrop = function(event) {
+        event.preventDefault();
+
+        var file = event.dataTransfer.files[0];
+
+        var reader = new FileReader();
+        reader.readAdDataURL(file);
+
+        reader.onload = function() {
+            var dataURL = reader.result;
+            document.body.style.background = 'url(' + dataURL + ')';
+            localStorage.background = dataURL;
+        };
+    };
+
+    window.onload = function() {
+        if (localStorage.background) {
+            document.body.style.background = 'url(' + localStorage.background + ')';
+        }
+    };
+</script>

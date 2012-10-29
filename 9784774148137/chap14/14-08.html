@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    window.onload = updateContent;
+    window.onpopstate = updateContent;
+    function gotoContent(data, title, pathname) {
+        history.pushState(data, title, pathname);
+        updateContent();
+    }
+    function updateContent() {
+        if (history.state && history.state.prev_url) {
+            backLink.href = history.state.prev_url;
+            backLink.textContent = history.state.prev_title || '戻る';
+            backLink.style.display = '';
+        } else {
+            backLink.style.display = 'none';
+        }
+    }
+</script>

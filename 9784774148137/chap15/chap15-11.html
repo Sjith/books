@@ -1,0 +1,16 @@
+<div id="progWrap" style="width:200px; height:30px; background:gray;">
+    <div id="progBar" style="width:0; height:30px; background:green;"></div>
+</div>
+
+<script type="text/javascript">
+    function readFile(file) {
+        var reader = new FileReader();
+        reader.onprogress = function(event) {
+            if (event.lengthComputable) {
+                var loaded = (event.loaded / event.total);
+                progBar.style.width = progWrap.offsetWidth * loaded + 'px';
+            }
+        };
+        reader.readAsText(file);
+    }
+</script>

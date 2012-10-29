@@ -1,0 +1,7 @@
+<input type="file" accept="image/*" id="selectFile"/>
+<script>
+    document.getElementById('selectFile').onchange = function(event) {
+        var file = event.target.files[0];
+        alert(file.name + 'を選択しました');
+    };
+</script>

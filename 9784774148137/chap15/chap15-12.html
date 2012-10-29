@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    var lastPos = 0;
+    function getDiff(file) {
+        var blob = file.slice(lastPos, file.size);
+        lastPos = file.size;
+        var reader = new FileReader();
+        reader.onload = function() { /* do something */ };
+        reader.readAsText(blob);
+    }
+</script>

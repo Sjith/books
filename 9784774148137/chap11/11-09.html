@@ -1,0 +1,17 @@
+<script>
+    if (!window.XMLHttpRequest) {
+        // Internet Explorer 6
+        XMLHttpRequest = function() {
+            var objs = ['MSXML2.XMLHTTP.6.0', 'MSXML2.XMLHTTP.3.0', 'MXSML2.XMLHTTP', 'Microsoft.XMLHTTP'];
+            for (var i = 0; i < objs.length; i++) {
+                var obj = objs[i];
+                try {
+                    return new ActiveXObject(obj);
+                } catch (ignore) {
+                }
+            }
+            throw new Error('Cannot create XMLHttpRequest object.');
+        };
+    }
+    var xhr = new XMLHttpRequest();
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="main">
+            <p class="content"><a href="http://example.com/" class="link">1st link</a></p>
+            <p class="dummy"></p>
+            <p class="content"><a href="http://example.com/">2nd link</a></p>
+            <p class="content">
+                <a href="http://foobar.example.com/">3rd link</a>
+                <a href="http://example.com/">4th link</a>
+            </p>
+            <a href="http://example.com/">5th link</a>
+        </div>
+        <script>
+            // イテレータを取得
+            var iterator = document.evaluate(
+                '//div[@id="main"]/p',
+                document,
+                null,
+                XPathResult.ORDERED_NODE_ITERATOR_TYPE,
+                null
+            );
+
+            // イテレータを取得した後に条件にマッチするノードを文書に追加
+            var newParagraph = document.createElement('p');
+            document.getElementById('main').appendChild(newParagraph);
+            newParagraph.appendChild(document.createTextNode('This is a new paragraph.'));
+            try {
+                node = iterator.iterateNext();  // INVALID_STATE_ERRという例外が発生する
+            } catch (e) {
+                console.log(e);
+            }
+
+            // スナップショットを取得
+            var snapshot = document.evaluate(
+                '//div[@id="main"]/p',
+                document,
+                null,
+                XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+                null
+            );
+
+            // スナップショットを取得した後に条件にマッチするノードを文書に追加する
+            var anotherParagraph = document.createElement('p');
+            document.getElementById('main').appendChild(anotherParagraph);
+            for (var i = 0; i < snapshot.snapshotLength; i++) {
+                console.log(snapshot.snapshotItem(i) === anotherParagraph);
+                // すべてfalseになる
+                // つまりanotherParagraphはsnapshotに含まれていない
+                // 例外も発生しない
+            }
+        </script>
+    </body>
+</html>

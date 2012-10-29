@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="main">
+            <p class="content"><a href="http://example.com/" class="link">1st link</a></p>
+            <p class="dummy"></p>
+            <p class="content"><a href="http://example.com/">2nd link</a></p>
+            <p class="content">
+                <a href="http://foobar.example.com/">3rd link</a>
+                <a href="http://example.com/">4th link</a>
+            </p>
+            <a href="http://example.com/">5th link</a>
+        </div>
+        <script>
+            var result = document.evaluate(
+                // idがmainのdiv /classにcontentを含むp要素の3番目 /hrefがhttp://example.com/から始まるa要素
+                '//div[@id="main"]/p[contains(@class, "content")][3]/a[starts-with(@href, "http://example.com/")]',
+                document,
+                null,
+                XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+                null
+            );
+            alert(result.snapshotLength);
+            var elem = result.snapshotItem(0);
+            alert(elem.innerHTML);
+        </script>
+    </body>
+</html>

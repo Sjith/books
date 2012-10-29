@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    document.location = 'data:,Hello%2C%20world!';
+
+    var data = encodeURIComponent('<h1>Hello, world!</h1>');
+    document.location = 'data:text/html,' + data;
+
+    var data = btoa('<h1>Hello, world!</h1>');
+    document.location = 'data:text/html;base64,' + data;
+</script>

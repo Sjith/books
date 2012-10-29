@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>class名を変更して関連要素のスタイルを変更する</title>
+<style>
+    .foo-before {
+        background-color: white;
+        color: black;
+    }
+    .foo-before p {
+        text-decoration: none;
+    }
+    .foo-before + div {
+        text-decoration: none;
+    }
+
+    .foo-after {
+        background-color: black;
+        color: white;
+    }
+    .foo-after p {
+        text-decoration: underline;
+    }
+    .foo-after + div {
+        text-decoration: line-through;
+    }
+</style>
+</head>
+<body>
+    <div id="foo" class="foo-before">
+        <p>one</p>
+        <p>two</p>
+        <p>three</p>
+        <p>four</p>
+    </div>
+    <div>
+        This is sample text.
+    </div>
+    <script>
+        var foo = document.getElementById('foo');
+        foo.onclick = function toggleStyle() {
+            this.classList.toggle('foo-after');
+            this.classList.toggle('foo-before');
+        }
+    </script>
+</body>
+</html>

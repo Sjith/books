@@ -1,0 +1,10 @@
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://example.com/something', false); // 第三引数にfalseを指定して同期通信する
+    xhr.setRequestHeader('If-Modified-Since', 'Thu, 01 Jun 1970 00:00:00 GMT');
+    xhr.send(null); // ここでクライアント側の処理は待機となる
+    // ここに来るときはレスポンスの受信は完了している
+    if (xhr.status == 200) {
+        alert(xhr.responseText);
+    }
+</script>

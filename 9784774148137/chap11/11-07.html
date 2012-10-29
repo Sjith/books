@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+    <div id="foo" style="width: 2000px; height: 2000px; position: relative;">
+        <div id="message" style="position: absolute; background: lightgray; width: 100px">Hello, World!</div>
+    </div>
+    <script>
+        var foo = document.getElementById('foo');
+        function getPosition(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var r = event.target.getBoundingClientRect();
+            x -= r.left;
+            y -= r.top;
+            //alert("x = " + x + ", y = " + y + ", r.left = " + r.left + ", r.top = " + r.top);
+            return { x: x, y: y };
+        }
+        foo.addEventListener('click', function(event) {
+            var message = document.getElementById('message');
+            if (event.target === message) {
+                // message自体がクリックされたときは何もしない
+                return;
+            }
+            var pos = getPosition(event);
+            message.style.left = pos.x + 'px';
+            message.style.top = pos.y + 'px';
+        }, false);
+    </script>
+</body>
+</html>

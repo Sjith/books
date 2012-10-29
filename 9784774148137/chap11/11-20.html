@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>親ページ</title>
+<script>
+    function getData() {
+        frames[0].postMessage('http://other.example.com/some-data', 'http://other.example.com/');
+    }
+    window.addEventListener('message', function(event) {
+        if (event.origin !== 'http://other.example.com/') {
+            return;
+        }
+        document.getElementById('result').innerHTML = event.data;
+    }, false);
+</script>
+</head>
+<body>
+<input onclick="getData()" type="button" value="other.example.comからデータ取得" />
+<div id="result"></div>
+<iframe id="child-iframe" style="display: none;" src="http://other.example.com/api.html" frameborder="0"></iframe>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<script src="https://www.google.com/jsapi?key=_YOUR_APIKEY_" type="text/javascript"></script>
+<script type="text/javascript">
+google.load("language", "1");
+
+function doTranslate() {
+    var text = document.getElementById("sourceText").value;
+
+    google.language.translate(text, 'en', 'ja', function(result) {
+        if (result.translation) {
+            alert(result.translation);
+        }
+    });
+}
+</script>
+<input id="sourceText" type="text" />
+<div onclick="doTranslate()">翻訳</div>

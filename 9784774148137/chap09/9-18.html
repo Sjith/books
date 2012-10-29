@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+var elem = document.createElement('div');
+var text = document.createTextNode('This is a new div element');
+document.body.appendChild(elem);
+elem.appendChild(text);
+var comment = document.createComment('this is comment');
+document.body.insertBefore(comment, elem);
+</script>
+</body>
+</html>

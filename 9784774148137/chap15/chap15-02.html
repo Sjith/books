@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div id="drophere">Drop Here</div>
+<script type="text/javascript">
+    var drophere = document.getElementById('drophere');
+
+    drophere.ondragover = function(event) {
+        for (var i = 0; i < event.dataTransfer.type.length; i++) {
+            if (event.dataTransfer.types[i] === 'text/plain') {
+                event.preventDefault();
+                break;
+            }
+        }
+    };
+
+    drophere.ondrop = function(event) {
+        event.preventDefault();
+        var yourName = event.dataTransfer.getData('text/plain');
+        alert('Hello, ' + yourName + '!');
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+        function doSearch() {
+            $.ajax({
+                'type': 'GET',
+                'url': 'http://api.flickr.com/services/rest/',
+                'data': {
+                    method  : 'flickr.phtos.search',
+                    text    : $('#queryString').val(),
+                    api_key : '7edb2f0a659874db3321fbd29ff9c412',
+                    format  : 'json',
+                },
+                'dataType': 'jsonp',
+                'jsonp': 'jsoncallback',
+                'success': function(data) {
+                    var content = $('#content');
+                    if (data.photos && data.photos.photo) {
+                        data.photos.photo.forEach(function(photo) {
+                            var img_url = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
+                            content.append('<img src="' + img_url + '"</img>');
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+    <input id="queryString" name="queryString" type="text" />
+    <div onclick="doSearch()">Gox</div>
+    <div id="content"></div>
+</body>
+</html>

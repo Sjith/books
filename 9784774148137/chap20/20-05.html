@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            var lat = pos.coords.latitude;
+            var lng = pos.coords.longitude;
+            var img = document.createElement('img');
+            //alert(lat + ',' + lng);
+            img.src = 'http://maps.google.com/maps/api/staticmap?center=' + lat + ',' + lng + '&zoom=14&size=512x512&sensor=false';
+            document.body.appendChild(img);
+    });
+</script>
+</head>
+<body>
+</body>
+</html>

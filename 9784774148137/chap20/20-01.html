@@ -1,0 +1,19 @@
+<script type="text/javascript">
+
+function translateText(response) {
+    alert(response.data.tranlations[0].translatedText);
+}
+
+function doTranslate() {
+    var newScript = document.createElement('script');
+    newScript.type = 'text/javascript';
+    var sourceText = encodeURIComponent(document.getElementById("sourceText").value);
+    var source = 'https://www.googleapis.com/language/translate/v2?key=_YOUR_APIKEY_&source=en&target=ja&callback=translateText&q=' + sourceText;
+    newScript.src = source;
+
+    document.getElementByTagName('head')[0].appendChild(newScript);
+}
+
+</script>
+<input id="sourceText" type="text" />
+<div onclick="doTranslate()">翻訳</div>

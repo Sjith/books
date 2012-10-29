@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>simple chat client</title>
+</head>
+<body>
+<input onkeydown="if (event.keyCode === 13) submit(this)" />
+<script type="text/javascript">
+    //var ws = new WebSocket('ws://localhost:8888/');
+    var ws = new WebSocket('ws://127.0.0.1:8888/');
+
+    ws.onopen = function(e) {
+        ws.send("hoge");
+    };
+
+    ws.onmessage = function(event) {
+        var comment = document.createElement('li');
+        comment.textContent = event.data;
+        document.body.appendChild(comment);
+    };
+
+    function submit(textbox) {
+        ws.send(textbox.value);
+        textbox.value = '';
+    }
+</script>
+</body>
+</html>

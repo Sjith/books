@@ -1,0 +1,14 @@
+<a href="http://www.example.com/foo.mp3"
+   data-downloadurl="audio/mpeg:foo.mp3:http://example.com/foo.mp3"
+   class="dragout" draggable="true">download</a>
+<a href="http://www.example.com/bar.pdf"
+   data-downloadurl="application/pdf:bar.pdf:http://example.com/bar.pdf"
+   class="dragout" draggable="true">download</a>
+<script>
+    var files = document.querySelectorAll('.dragout');
+    for (var i = 0, file; file = files[i]; i++) {
+        file.addEventListener('dragstart', function(event) {
+            event.dataTransfer.setData('DownloadURL', this.dataset.downloadurl);
+        }, false);
+    }
+</script>

@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    var reader = new FileReader();
+    reader.readAsText(file);
+
+    reader.onload = function(event) {
+        var textData = reader.result;
+        alert(textData);
+    };
+</script>

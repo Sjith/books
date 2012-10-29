@@ -1,0 +1,12 @@
+<script>
+    var xhr = new XMLHttpRequest();
+    var timerId = window.setTimeout(function() {
+        xhr.abort();
+    }, 5000);   // 5秒でタイムアウトさせる
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            // タイムアウト処理をキャンセルする
+            window.clearTimeout(timerId);
+        }
+    });
+</script>

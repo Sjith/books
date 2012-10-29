@@ -1,0 +1,19 @@
+<div class="foo">foo</div>
+<div class="bar">bar</div>
+<div class="baz">baz</div>
+<script>
+    $('.foo').bind('click', function() {
+        $(this).text('Hello!');
+    });
+    $('.bar').bind({
+        'mouseover': function() {
+            $(this).text('Hi!');
+        },
+        'mouseout': function() {
+            $(this).text('Bye!');
+        },
+    });
+    $('.baz').bind('click', function() {
+        $('.bar').unbind('mouseout');
+    });
+</script>

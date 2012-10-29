@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルシートそのものを変更する</title>
+<link rel="stylesheet" type="text/css" href="style-a.css" id="style-a" disabled="true"/>
+<link rel="stylesheet" type="text/css" href="style-b.css" id="style-b" disabled="true"/>
+<style id="style-c" disabled="true">
+    #foo {
+        background-color: #999;
+    }
+</style>
+<script>
+    function change(id, enable) {
+        // チェックボックスでチェックを入れたスタイルを有効にする
+        document.getElementById(id).disabled = !enable;
+    }
+    window.addEventListener('load', function() {
+        // 初期値としてすべてのスタイルを無効にする
+        var styles = document.styleSheets;
+        for (var i = 0; i < styles.length; i++) {
+            styles[i].disabled = true;
+        }
+    }, false);
+</script>
+</head>
+<body>
+    <div id="foo">This is sample.</div>
+    <input type="checkbox" onchange="change('style-a', this.checked)" />
+    <input type="checkbox" onchange="change('style-b', this.checked)" />
+    <input type="checkbox" onchange="change('style-c', this.checked)" />
+</body>
+</html>

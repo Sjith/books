@@ -1,0 +1,16 @@
+<script>
+    function foo(json) {
+        // jsonデータを使ってなにかやる
+    }
+
+    function loadData() {
+        var elem = document.createElement('script');
+        // callback関数としてfooを指定する
+        // JSONPを利用したAPIではcallback関数の名前を指定できることが多い
+        elem.src = 'http://api.example.com/some-data&callback=foo';
+        // scriptタグをheadに追加する
+        // このときDOMの再構築が行われ、scriptタグのsrcの内容がロードされる
+        // ロードされるとfoo関数が実行される
+        document.getElementByTagName('head')[0].appendChild(elem);
+    }
+</script>

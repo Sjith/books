@@ -1,0 +1,11 @@
+<script>
+    function gotoPage(num) {
+        updateContent(num);
+        location.hash = '#!page=' + num;
+    }
+
+    window.onhashchange = function() {
+        var num = location.hash.match(/#!page=([0-9]+)/)[1];
+        updateContent(num);
+    };
+</script>

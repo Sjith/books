@@ -1,0 +1,27 @@
+<script>
+    var foo = function() {
+        var d = $.Deferred();
+        setTimeout(function() {
+            d.resolve('This is', 'resolved', 'deferred.');
+        }, 500);
+        return d.promise();
+    };
+
+    var bar = function() {
+        var d = $.Deferred();
+        setTimeout(function() {
+            d.rejectWith({
+                message: 'This is %s %s'
+            }, ['rejected', 'deferred.']);
+        }, 500);
+        return d.promise();
+    };
+
+    foo().done(function(arg1, arg2, arg3) {
+        console.log('%s %s %s', arg1, arg2, arg3);
+    });
+
+    bar().fail(function(arg1, arg2) {
+        console.log(this.message, arg1, arg2);
+    });
+</script>

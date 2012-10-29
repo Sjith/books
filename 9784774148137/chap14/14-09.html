@@ -1,0 +1,11 @@
+<script type="text/javascript">
+    function toggleCheck(chkbox) {
+        chkbox.checked = !chkbox.checked;
+        var data = {};
+        for (var prop in (history.state || {})) {
+            data[prop] = history.state[prop];
+        }
+        data.chkbox = chkbox.checked;
+        history.replaceState(data, document.title);
+    }
+</script>

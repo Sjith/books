@@ -1,0 +1,10 @@
+<div class="foo">Click Me!</div>
+<div class="bar">Double Click Me!</div>
+<script>
+    $('.foo').click({message: 'Hello!'}, function(event) {
+        alert(event.data.message);
+    });
+    $('.bar').dblclick(function() {
+        $('.foo').click();
+    });
+</script>

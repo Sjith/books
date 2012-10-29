@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>子iframe</title>
+<script>
+    function executeApi() {
+        // location.hashの先頭1文字(#)を取り除いて残りをJSONとしてパースする
+        var param = JSON.parse(location.hash.substring(1));
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var iframe = document.getElementById('grandchild-iframe');
+                iframe.location.href = param.callback + '#' + xhr.responseText;
+            }
+        };
+        xhr.open(param.api, 'GET');
+        xhr.send(null);
+    }
+</script>
+</head>
+<body onload="executeApi()">
+    <iframe id="grandchild-iframe" src="dummy.gif" style="display: none;"></iframe>
+</body>
+</html>

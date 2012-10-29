@@ -1,0 +1,9 @@
+<body>
+<button class="foo">このボタンがクリックされたときにリンクを追加する</button>
+<button class="foo">このボタンでは反応しない</button>
+<script>
+    $('button.foo:first').click(function() {
+        $('<div><a></a></div>').find('a').text('jQuery.com').attr('href', 'http://jquery.com/').end().appendTo('body');
+    });
+</script>
+</body>

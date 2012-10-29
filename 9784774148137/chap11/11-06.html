@@ -1,0 +1,9 @@
+<script>
+    function onclick(event) {
+        var x = event.clientX;      // ウィンドウ座標系でのマウスポインタのx座標
+        var y = event.clientY;      // ウィンドウ座標系でのマウスポインタのy座標
+        var r = event.target.getBoundingClientRect();   // ウィンドウ座標系でのクリックした要素の領域情報
+        x -= r.left;    // クリックした要素でのマウスポインタのx座標
+        y -= r.top;     // クリックした要素でのマウスポインタのy座標
+    }
+</script>
