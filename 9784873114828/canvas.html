@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<canvas id="a" width="300" height="255"></canvas>
+<canvas id="b" width="300" height="255" onclick="draw_b()"></canvas>
+<canvas id="c" width="500" height="375"></canvas>
+<canvas id="d" width="300" height="225"></canvas>
+<!--<img id="cat" src="images/cat.png" alt="sleeping cat" width="177" height="113" />-->
+<canvas id="e" width="177" height="113"></canvas>
+<script type="text/javascript">
+function draw_b() {
+    var b_canvas = document.getElementById("b");
+    var b_context = b_canvas.getContext("2d");
+    b_context.fillRect(50, 25, 150, 100);
+    //b_context.strokeRect(50, 25, 150, 100);
+}
+
+function draw_c() {
+    var c_canvas = document.getElementById("c");
+    var context = c_canvas.getContext("2d");
+    for (var x = 0.5; x < 500; x += 10) {
+        context.moveTo(x, 0);
+        context.lineTo(x, 375);
+    }
+    for (var y = 0.5; y < 375; y += 10) {
+        context.moveTo(0, y);
+        context.lineTo(500, y);
+    }
+    context.strokeStyle = "#eee";
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(0, 40);
+    context.lineTo(240, 40);
+    context.moveTo(260, 40);
+    context.lineTo(500, 40);
+    context.moveTo(495, 35);
+    context.lineTo(500, 40);
+    context.lineTo(495, 45);
+
+    context.moveTo(60, 0);
+    context.lineTo(60, 153);
+    context.moveTo(60, 173);
+    context.lineTo(60, 375);
+    context.moveTo(65, 370);
+    context.lineTo(60, 375);
+    context.lineTo(55, 370);
+
+    context.strokeStyle = "#000";
+    context.stroke();
+
+    context.font = "bold 12px sans-serif";
+    context.fillText("x", 248, 43);
+    context.fillText("y", 58, 165);
+
+    context.textBaseline = "top";
+    context.fillText("(0, 0)", 8, 5);
+
+    context.textAlign = "right";
+    context.textBaseline = "bottom";
+    context.fillText("(500, 375)", 492, 370);
+
+    context.fillRect(0, 0, 3, 3);
+    context.fillRect(497, 372, 3, 3);
+}
+draw_c();
+
+function draw_d() {
+    var d_canvas = document.getElementById("d");
+    var context = d_canvas.getContext("2d");
+    //var my_gradient = context.createLinearGradient(0, 0, 300, 0); // 横グラデーション
+    //var my_gradient = context.createLinearGradient(0, 0, 0, 255); // 縦グラデーション
+    var my_gradient = context.createLinearGradient(0, 0, 300, 255); // 斜グラデーション
+    my_gradient.addColorStop(0, "black");
+    my_gradient.addColorStop(1, "white");
+    context.fillStyle = my_gradient;
+    context.fillRect(0, 0, 300, 225);
+}
+draw_d();
+
+window.onload = function() {
+    var canvas = document.getElementById("e");
+    var context = canvas.getContext("2d");
+    /*
+    var cat = document.getElementById("cat");
+    context.drawImage(cat, 0, 0);
+    */
+    var cat = new Image();
+    cat.src = "images/cat.png";
+    cat.onload = function() {
+        for (var x = 0, y = 0; x < 500 && y < 375; x += 50, y += 37) {
+            context.drawImage(cat, x, y, 88, 56);
+        }
+    };
+}
+</script>
+</body>
+</html>
