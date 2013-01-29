@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            width: 800px;
+            border: 1px solid #F00;
+            color: #F00;
+            position: 5px 10px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        p.abosolute-0 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        p.absolute-1 {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p class="absolute-0">top left を0にした場合</p>
+    <p class="absolute-1">top 50px left 100px にした場合</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var $absolute0 = $('p.absolute-0');
+        var otop = $absolute0.offset().top;
+        var oleft = $absolute0.offset().left;
+        var ptop = $absolute0.position().top;
+        var pleft = $absolute0.position().left;
+        $absolute0.text($absolute0.text() + '(' + otop + ',' + oleft + ',' + ptop + ',' + pleft + ')');
+
+        var $absolute1 = $('p.absolute-1');
+        var otop = $absolute1.offset().top;
+        var oleft = $absolute1.offset().left;
+        var ptop = $absolute1.position().top;
+        var pleft = $absolute1.position().left;
+        $absolute1.text($absolute1.text() + '(' + otop + ',' + oleft + ',' + ptop + ',' + pleft + ')');
+    });
+    </script>
+</body>
+</html>

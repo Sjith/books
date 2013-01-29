@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        $.fn.myPlugin = function() {
+            return this
+                .bind('click.myPlugin', function() {
+                })
+                .bind('mousedown.myPlugin', function {
+                });
+        };
+
+        $.fn.disposeMyPlugin = function() {
+            return this.unbind('.myPlugin');
+        });
+    });
+    </script>
+</body>
+</html>

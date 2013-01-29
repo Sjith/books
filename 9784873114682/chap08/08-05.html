@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        /*
+        $('form').bind('submit', function(e, name, surname, age, extra) {
+            // blahblahblah
+        });
+
+        $('form').trigger('submit', ['Jonh', 'Doe', 28, {gender:'M'}]);
+        */
+
+        $('#slideshow').bind('add-image', function(e, src) {
+            var $img = $('<img/>').attr('src', src);
+            $(this).append($img);
+        });
+        $('#slideshow').trigger('add-image', 'img/dogs4.jpg');
+
+
+        $('#button').bind('click', function(e, submit) {
+            if (submit) {
+            } else {
+            }
+        });
+        $('#button').trigger('click', true);
+
+
+        $('form').bind('submit', function(e) {
+            // e.name, e.surname etc
+        });
+        $('form').trigger({
+            type: 'submit',
+            name: 'John',
+            surname: 'Doe',
+            age: 28,
+            gneder: 'M'
+        });
+    });
+    </script>
+</body>
+</html>

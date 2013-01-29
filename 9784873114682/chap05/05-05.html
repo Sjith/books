@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>
+        <div id="one" class="hilite">One</div>
+        <div id="two">Two</div>
+        <div id="three">Three</div>
+        <div id="four">Four</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        jQuery.fn.radioClass = function(cls) {
+            return this
+                .siblings()
+                    .removeClass(cls)
+                .end()
+                .addClass(cls);
+        };
+
+        $('#three').radioClass('hilite');
+    });
+    </script>
+</body>
+</html>

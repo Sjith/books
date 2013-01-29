@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            height: 200px;
+            width: 400px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div>hogehoge</div>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    function handler(e) {
+        alert('event');
+    }
+    $(function() {
+        //$('div').click(handler).keydown(handler);
+
+        $('div').bind('click keydown', handler);
+        $('div').unbind('click keydown', handler);
+    });
+    </script>
+</body>
+</html>

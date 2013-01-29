@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body id="the_offset_parent">
+    <div id="foo" style="position:absolute; top:10px; left:10px;">
+        <div id="bar">Some text inside #bar, which is inside #foo</div>
+    </div>
+    <div id="results"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var $foo = $('#foo');
+        var $bar = $('#bar');
+        var $results = $('#results');
+
+        var fooPosition = $foo.position();
+        var barPosition = $bar.position();
+
+        var fooOffset = $foo.offset();
+        var barOffset = $bar.offset();
+
+        var $fooOffsetParent = $foo.offsetParent();
+        var $barOffsetParent = $bar.offsetParent();
+
+        $results
+            .append('<p>#foo position.top: ' + fooPosition.top + '</p>')
+            .append('<p>#foo position.left: ' + fooPosition.left + '</p>')
+            .append('<p>#bar position.top: ' + barPosition.top + '</p>')
+            .append('<p>#bar position.left: ' + barPosition.left + '</p>')
+            .append('<p>#foo offset.top: ' + fooOffset.top + '</p>')
+            .append('<p>#foo offset.left: ' + fooOffset.left + '</p>')
+            .append('<p>#bar offset.top: ' + barOffset.top + '</p>')
+            .append('<p>#bar offset.left: ' + barOffset.left + '</p>')
+            .append('<p>ID of #foo offsetParent: ' + $fooOffsetParent.attr('id'))
+            .append('<p>ID of #bar offsetParent: ' + $barOffsetParent.attr('id'));
+    });
+    </script>
+</body>
+</html>

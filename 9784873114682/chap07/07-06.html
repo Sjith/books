@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 7</title>
+</head>
+<body id="single">
+    <input id="animate" type="button" value="animate" />
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="debug"></div>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        var speed = 100;
+
+        $('#animate').click(function() {
+            $('.box')
+                .filter(':not(:animated)')
+                .animate({marginLeft:-10}, speed, function() {
+                    $('#debug').append('<p>Starting animation.</p>');
+                })
+                .animate({marginLeft:10}, speed)
+                .animate({marginLeft:-10}, speed)
+                .animate({marginLeft:10}, speed)
+                .animate({marginLeft:-10}, speed)
+                .animate({marginLeft:10}, speed)
+                .animate({marginLeft:0}, speed, function() {
+                    $('#debug').append('<p>Finished animation.</p>');
+                });
+
+
+        });
+    });
+    </script>
+</body>
+</html>

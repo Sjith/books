@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 7</title>
+    <style type="text/css">
+        .box {
+            position: relative;
+        }
+        #revealUp {
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            bottom: 0;
+            background-color: #c00;
+            height: 0;
+        }
+    </style>
+</head>
+<body id="single">
+    <input id="animate" type="button" value="animate" />
+    <div class="box">
+        <div id="revealUp">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        $('#animate').click(function() {
+            var $box = $('#revealUp');
+            if ($box.height() > 0) {
+                $box.animate({ height: 0 });
+            } else {
+                $box.animate({ height: '100%' });
+            }
+        });
+    });
+    </script>
+</body>
+</html>

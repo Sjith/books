@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        /*
+        var obj = { hello: 'world' };
+        obj = $.extend(obj, { hello: 'big world' }, { foo: 'bar' });
+
+        alert(obj.hello);
+        alert(obj.foo);
+        */
+
+        $.fn.extend({
+            myPlugin: function(options) {
+                options = $.extend({
+                    message: 'Hello world',
+                    css: { color: 'red' },
+                }, options);
+                return this.each(function() {
+                    $(this).css(options.css).html(options.message);
+                });
+            }
+        });
+
+        $('div:eq(0)').myPlugin();
+        $('div:eq(1)').myPlugin({css: {color: 'blue'}});
+        $('div:eq(2)').myPlugin({message: 'Hello jQuery!', css:{color:'black'}});
+
+        /*
+         * $.extendの再帰コピー
+         */
+        var obj1 = { foo: { bar: '123', baz: '456' }, hello: 'world' };
+        var obj2 = { foo: { car: '789' } };
+
+        // - 再帰なし
+        // { foo: { car: '789' }, hello: 'world' }
+        var obj3 = $.extend(obj1, obj2) {
+
+        // - 再帰あり
+        // { foo: { bar: '123', baz: '456', car: '789' }, message: 'world' }
+        var obj3 = $.extend(true, obj1, obj2) {
+    });
+    </script>
+</body>
+</html>
