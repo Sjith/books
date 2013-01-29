@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="desc"></div>
+
+    <div class="panel" id="panel1">panel1</div>
+    <div class="panel" id="panel2">panel2</div>
+    <div class="panel" id="panel3">panel3</div>
+
+    <input id="button1" type="button" value="red" />
+    <input id="button2" type="button" value="blue" />
+    <input id="button3" type="button" value="green" />
+
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        /*
+        $('#button1').click(function(e) {
+            $('div.panel').hide();
+            $('#panel1').show();
+            $('#desc').text('You clicked the red button');
+        });
+        $('#button2').click(function(e) {
+            $('div.panel').hide();
+            $('#panel2').show();
+            $('#desc').text('You clicked the blue button');
+        });
+        $('#button3').click(function(e) {
+            $('div.panel').hide();
+            $('#panel3').show();
+            $('#desc').text('You clicked the green button');
+        });
+        */
+
+        /*
+        function buttonClicked(e) {
+            $('div.panel').hide();
+            $('#panel' + e.data.panel).show();
+            $('#desc').text('You clicked the ' + e.data.color + ' button');
+        }
+
+        $('#button1').bind('click', {panel:1, color:'red'}, buttonClicked);
+        $('#button2').bind('click', {panel:2, color:'blue'}, buttonClicked);
+        $('#button3').bind('click', {panel:3, color:'green'}, buttonClicked);
+        */
+
+        $.each(['red', 'blue', 'green'], function(num, color) {
+            num++;
+            $('#button' + num).bind('click', function(e) {
+                $('div.panel').hide();
+                $('#panel' + num).show();
+                $('#desc').text('You clicked the ' + color + ' button');
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="clicky">Click!</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        /*
+        $('.clicky').click(function() {
+            $(this).addClass('clicked');
+            setTimeout(function() {
+                $(this).removeClass('clicked'); // このthisは、clickyを参照しない
+            }, 1000);
+        });
+        */
+        
+        $('.clicky').click(function() {
+            $element = $(this);
+            $element.addClass('clicked');
+            setTimeout(function() {
+                $element.removeClass('clicked');
+            }, 1000);
+        });
+
+        function Foo(value) {
+            this.value = value;
+        }
+
+        Foo.prototype.alert = function() {
+            alert(this.value);
+        }
+
+        var foo = new Foo('bar');
+        foo.alert();    // 'bar'
+    });
+    </script>
+
+    <a id="test" onclick="clicked(this);" href="#">Test</a>
+    <script type="text/javascript">
+        function clicked(it) {
+            alert(it.id);           // 'test'
+            alert(this.id);         // undefined
+            alert(this === window); // true
+        }
+    </script>
+</body>
+</html>

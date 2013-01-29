@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="box">
+        <div>contentTitle</div>
+        <div>contentBody</div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $('#box')
+            .addClass('contentBox')
+            .children(':header')
+                .addClass('contentTitle')
+                .click(function() {
+                    $(this).siblings('.contentBody').toggle();
+                })
+            .end()
+            .children(':not(.contentTitle)')
+                .addClass('contentBody')
+            .end()
+                .append('<div class="contentFooter"></div>')
+            .children('.contentFooter')
+                .text('generated content');
+
+    });
+    </script>
+</body>
+</html>

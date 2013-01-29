@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="time" class="updateTime"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $(document).bind('setData', function(evt, key, value) {
+            if (key === 'clock') {
+                $('.updateTime').html(value);
+            }
+        });
+
+        setInterval(function() {
+            $(document).data('clock', (new Date()).toString())
+        }, 1000);
+    });
+    </script>
+</body>
+</html>

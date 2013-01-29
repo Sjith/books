@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        div#wrapper {
+            width: 500px;
+            height: 1000px;
+            background: #ACD;
+            border-right: 1px solid #069;
+            border-left: 1px solid #069;
+            margin: 0 auto;
+        }
+        p {
+            width: 200px;
+            border: 1px solid #000;
+            color: #000;
+            position: 5px 10px;
+        }
+        p.fixed-0 {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        p.fixed-1 {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>wrapper</h1>
+        <p class="fixed-0">top left を0にした場合</p>
+        <p class="fixed-1">right bottom を0にした場合</p>
+    </div>
+</body>
+</html>

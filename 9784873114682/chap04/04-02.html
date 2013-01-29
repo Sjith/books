@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div><ul id="months"></ul></div>
+    <div><ul id="days"></ul></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augast', 'September', 'October', 'November', 'Decembre' ];
+        $.each(months, function(index, value) {
+            $('#months').append('<li>' + value + '</li>');
+        });
+
+        var days = { Sunday:0, Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6 };
+        $.each(days, function(key, value) {
+            $('#days').append('<li>' + key + ' (' + value + ')</li>');
+        });
+    });
+    </script>
+</body>
+</html>

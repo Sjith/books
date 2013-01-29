@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 7</title>
+</head>
+<body id="single">
+    <input id="animate" type="button" value="animate" />
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        var $boxes = $('.box').hide();
+
+        /*
+        $('#animate').click(function() {
+            $boxes.eq(0).fadeIn('slow', function() {
+                $boxes.eq(1).slideDown('slow');
+            });
+        });
+         */
+
+        var div = 0;
+        $('#animate').click(function() {
+            $($boxes[div++] || []).fadeIn('slow', arguments.callee);
+        });
+    });
+    </script>
+</body>
+</html>

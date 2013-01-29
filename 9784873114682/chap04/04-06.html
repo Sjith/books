@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li class="animals">foo</li>
+        <li class="animals">bar</li>
+        <li class="animals">hoge</li>
+        <li class="animals">foo</li>
+        <li class="animals">foo</li>
+        <li class="animals">foo</li>
+    </ul>
+    <ul>
+        <li class="horses">foo</li>
+        <li class="horses">baz</li>
+        <li class="horses">fuga</li>
+    </ul>
+    <ul id="animals"></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var animals = $('li.animals').get();
+        var horses = $('li.horses').get();
+        /*
+        var animals = $('li.animals');
+        var horses = $('li.horses');
+        */
+        var tmp = $.merge(animals, horses);
+        tmp = $.unique(tmp);
+        $('#animals').append($(tmp).clone());
+    });
+    </script>
+</body>
+</html>

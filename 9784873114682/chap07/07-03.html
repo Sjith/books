@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #accordionWrapper {
+            margin: 10px;
+        }
+        #accordionWrapper h3 a {
+            text-indent: -9999px;
+            height: 150px;
+            width: 50px;
+            float: left;
+            /* display: block; */
+        }
+        #accordionWrapper .red {
+            /* background: #c00 url(images/red.png) no-repeat; */
+            color: #c00;
+        }
+        #accordionWrapper .green {
+            /* background: #0c0 url(images/green.png) no-repeat; */
+            color: #0c0;
+        }
+        #accordionWrapper .blue {
+            /* background: #00c url(images/blue.png) no-repeat; */
+            color: #00c;
+        }
+        #accordionWrapper div.box {
+            float: left;
+            height: 150px;
+            width: 150px;
+            border: 0;
+            margin: 0;
+            background-image: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="accordionWrapper">
+        <h3 class="red"><a href="#red">Red</a></h3>
+        <div id="red" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        </div>
+
+        <h3 class="green"><a href="#green">Green</a></h3>
+        <div id="green" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        </div>
+
+        <h3 class="blue"><a href="#blue">Blue</a></h3>
+        <div id="blue" class="box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        </div>
+    </div>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $.fn.horizontalAccordion = function(speed) {
+        return this.each(function() {
+            var $accordionHeaders = $(this).find('h3'),
+                $open = $accordionHeaders.next().filter(':first'),
+                width = $open.outerWidth();
+
+            $accordionHeaders.next().filter(':not(:first)').css({display:'none', width:0});
+
+            $accordionHeaders.click(function() {
+                if ($open.prev().get(0) == this) {
+                    return;
+                }
+                $open.animate({width:0}, {duration:speed});
+                $open = $(this).next().animate({width:width}, {duration:speed});
+            });
+        });
+    };
+
+    $(function() {
+        $('#accordionWrapper').horizontalAccordion(200);
+    });
+    </script>
+</body>
+</html>

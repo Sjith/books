@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>jQuery Cookbook Authors</h1>
+    <ol>
+        <li>author-1</li>
+        <li>author-2</li>
+        <li>author-3</li>
+        <li>author-4</li>
+        <li>author-5</li>
+        <li>author-6</li>
+        <li>author-7</li>
+        <li>author-8</li>
+        <li>author-9</li>
+        <li>author-10</li>
+        <li>author-11</li>
+        <li>author-12</li>
+        <li>author-13</li>
+        <li>author-14</li>
+        <li>author-15</li>
+        <li>author-16</li>
+        <li>author-17</li>
+        <li>author-18</li>
+        <li>author-19</li>
+        <li>author-20</li>
+    </ol>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var arr = $.map($('li'), function(item, index) {
+            while (index < 3) {
+                return $(item).html();
+            }
+            return null;
+        });
+
+        $('body').append("<span>The first three authors are: " + arr.join(", ") + "</span>");
+    });
+    </script>
+</body>
+</html>

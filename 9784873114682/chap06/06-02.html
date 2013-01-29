@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #myDiv {
+            width: 100px;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="results"></div>
+    <div id="myDiv">Some text.</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var $myDiv = $('#myDiv');
+        var $results = $('#results');
+
+        $('<p>Computed width: ' + $myDiv.width() + '</p>').appendTo($results);
+        $('<p>Computed height: ' + $myDiv.height() + '</p>').appendTo($results);
+        $('<p>Inner width: ' + $myDiv.innerWidth() + '</p>').appendTo($results);
+        $('<p>Inner height: ' + $myDiv.innerHeight() + '</p>').appendTo($results);
+        $('<p>Outer width: ' + $myDiv.outerWidth() + '</p>').appendTo($results);
+        $('<p>Outer height: ' + $myDiv.outerHeight() + '</p>').appendTo($results);
+
+        $('<p>Document Inner height: ' + $(document).innerHeight() + '</p>').appendTo($results);
+        $('<p>Document Outer height: ' + $(document).outerHeight() + '</p>').appendTo($results);
+
+        $('<p>Window Inner height: ' + $(window).innerHeight() + '</p>').appendTo($results);
+        $('<p>Window Outer height: ' + $(window).outerHeight() + '</p>').appendTo($results);
+    });
+    </script>
+</body>
+</html>

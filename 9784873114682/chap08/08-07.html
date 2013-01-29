@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="/js/jquery-1.8.2.js"></script>
+    <script>
+    $(function() {
+        $('form').submit(function(e) {
+            e.preventDefault();
+            if ($('#field').val() == '')
+                e.stopImmediatePropagation();
+        })
+        .submit(function(e) {
+            // 上記の関数がe.stopImmediatePropagation を呼び出さなかった場合のみ実行される
+        });
+
+        function checkEnabled(e) {
+            if ($(this).is('.disabled')) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }
+        };
+
+        $.fn.buttonize = function() {
+            return this.css('cursor', 'pointer').bind('click mousedown mouseup', checkEnabled);
+        };
+    });
+    </script>
+</body>
+</html>

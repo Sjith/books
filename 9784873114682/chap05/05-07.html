@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input class="toggleme" type="checkbox" value="check-1" />
+    <input class="toggleme" type="checkbox" value="check-2" />
+    <input class="toggleme" type="checkbox" value="check-3" />
+    <input class="toggleme" type="checkbox" value="check-4" />
+    <input class="toggleme" type="checkbox" value="check-5" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+    $(function() {
+        jQuery.fn.toggleCheck = function(check) {
+            return this.toggleAttr('checked', true, false, check);
+        };
+
+        jQuery.fn.toggleAttr = function(name, onValue, offValue, on) {
+            function set($element, on) {
+                var value = on ? onValue : offValue;
+                return value == null ? $element.removeAttr(name) : $element.attr(name, value);
+            }
+
+            return on !== undefined ?
+                set(this, on) :
+                this.each(function(i, element) {
+                    var $element = $(element);
+                    set($element, $element.attr(name) !== onValue);
+                });
+        };
+
+        $('.toggleme').toggleCheck(false);
+    });
+    </script>
+</body>
+</html>
