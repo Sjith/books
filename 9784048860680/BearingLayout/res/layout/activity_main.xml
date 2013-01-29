@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.bearinglayout.BearingLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bearing="http://schemas.android.com/apk/res/com.example.bearinglayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        bearing:layout_direction="south"
+        android:layout_marginBottom="30dp"
+        android:text="@string/hello_world" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@android:color/white"
+        android:src="@drawable/ic_launcher"
+        android:layout_margin="10dp"
+        bearing:layout_direction="east|center_latitude"/>
+</com.example.bearinglayout.BearingLayout>
